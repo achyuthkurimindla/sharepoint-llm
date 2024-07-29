@@ -5,9 +5,14 @@ import streamlit as st
 import webbrowser
 import random
 import time
-import chromadb
+try:
+    import chromadb
+    from chromadb.config import Settings
+except Exception as e:
+    st.error(f"Error importing chromadb: {e}")
+    raise
 from openai import OpenAI
-from chromadb.config import Settings
+
 import boto3
 
 import json
