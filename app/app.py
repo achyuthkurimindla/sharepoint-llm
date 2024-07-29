@@ -5,12 +5,10 @@ import streamlit as st
 import webbrowser
 import random
 import time
-try:
-    import chromadb
-    from chromadb.config import Settings
-except Exception as e:
-    st.error(f"Error importing chromadb: {e}")
-    raise
+import sqlite3
+
+import chromadb
+from chromadb.config import Settings
 from openai import OpenAI
 
 import boto3
@@ -19,6 +17,19 @@ import json
 
 
 from fastapi.responses import JSONResponse
+
+# Set correct paths for SQLite
+os.environ['LD_LIBRARY_PATH'] = '/usr/local/lib'
+sqlite3_lib = '/usr/local/lib'
+
+# Validate SQLite installation
+try:
+    sqlite_version = sqlite3.sqlite_version
+    if tuple(map(int, sqlite_version.split('.'))) < (3, 35, 0):
+        raise RuntimeError(f"SQLite version is {sqlite_version}, but 3.35.0 or higher is required.")
+except Exception as e:
+    st.error(f"SQLite installation error: {e}")
+
 
 client=OpenAI(base_url="http://localhost:1234/v1",api_key="not-needed")
 
