@@ -7,4 +7,5 @@ sentence-transformers
 openai
 pandas
 pysqlite3-binary
+python3.10
 
