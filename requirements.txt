@@ -1,0 +1,10 @@
+requests
+streamlit
+boto3
+chromadb
+sagemaker
+sentence-transformers
+openai
+pandas
+
+
