@@ -17,7 +17,8 @@ import json
 
 
 from fastapi.responses import JSONResponse
-
+# Check Python version
+st.write(f"Using Python version: {sys.version}")
 # Set correct paths for SQLite
 os.environ['LD_LIBRARY_PATH'] = '/usr/local/lib'
 sqlite3_lib = '/usr/local/lib'
