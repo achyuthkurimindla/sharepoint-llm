@@ -6,5 +6,5 @@ sagemaker
 sentence-transformers
 openai
 pandas
-
+pysqlite3-binary
 
